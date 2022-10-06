@@ -16,9 +16,9 @@ public class DraazzzzGame
     public DraazzzzGame(string wallet)
     {
         walletAddress = wallet;
-        
+
         GnosisBaseUrl = "https://blockscout.com/xdai/mainnet/api?module=account&action=tokenlist&address=";
-        EthBaseUrl = "https://blockscout.com/xdai/mainnet/api?module=account&action=tokenlist&address=";
+        EthBaseUrl = "https://api.etherscan.io/api?module=account&action=addresstokenbalance&address=0x983e3660c0bE01991785F80f266A84B911ab59b0&page=1&offset=100&apikey=YourApiKeyToken";
         
         List<MyArray> officialRealtTokenList = GetRealTokensFromAPI();
         List<RealToken> walletTokens = GetRealTokensFromMultipleAdresses(new List<String>(){walletAddress});
@@ -85,7 +85,7 @@ public class DraazzzzGame
         result.AddRange(gcTokensList);
         Console.WriteLine("{0} RealtToken(s) found from inside the wallet {1}", gcTokensList.Count(),walletAddress);
 
-        ///////////////////////////////////////
+        /////////////////////////////////////// 
 
         // Console.WriteLine("=> Getting datas on eth chain");
         // var ecRes = GetValue(EthBaseUrl+walletAddress);
@@ -103,6 +103,19 @@ public class DraazzzzGame
 
         return result;
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     // public async Task<bool> CheckAsync()
     // {
